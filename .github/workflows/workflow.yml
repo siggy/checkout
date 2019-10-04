@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request: {}
+  push:
+    branches:
+    - master
+    tags:
+    - "*"
+
+jobs:
+  test_checkout:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout actions
+      id: checkout
+      uses: ./.github/actions/checkout
+      # with:
+      #   git-ref: ${{ github.ref }}
+    - name: test git
+      run: |
+        git status
+        git log -n 4

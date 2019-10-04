@@ -17,8 +17,8 @@ jobs:
     - name: checkout actions
       id: checkout
       uses: ./.github/actions/checkout
-      # with:
-      #   git-ref: ${{ github.ref }}
+      with:
+        github-context: ${{ toJson(github) }}
     - name: test git
       run: |
         git status

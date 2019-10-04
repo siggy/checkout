@@ -18,6 +18,8 @@ inputs:
     description: 'The depth of commits to ask Git to fetch; defaults to no limit'
   path:
     description: 'Optional path to check out source code'
+  github-context:
+    description: 'JSON-encoded GitHub context provided to the Workflow'
 outputs:
   sha:
     description: "The git sha of the checked out repo"
@@ -27,4 +29,4 @@ runs:
   using: docker
   image: Dockerfile
   args:
-  - ${{ github }}
+  - ${{ inputs.github-context }}

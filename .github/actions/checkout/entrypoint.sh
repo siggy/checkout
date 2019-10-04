@@ -2,6 +2,8 @@
 
 set -eu
 
+env | sort
+
 echo "$1"
 
 # ref="$1"

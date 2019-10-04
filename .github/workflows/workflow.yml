@@ -12,6 +12,8 @@ jobs:
   test_checkout:
     runs-on: ubuntu-latest
     steps:
+    - name: git co
+      uses: actions/checkout@v1
     - name: checkout actions
       id: checkout
       uses: ./.github/actions/checkout

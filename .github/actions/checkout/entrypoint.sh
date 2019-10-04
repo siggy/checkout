@@ -2,6 +2,12 @@
 
 set -eu
 
+echo "PWD"
+pwd
+echo $GITHUB_WORKSPACE
+ls $GITHUB_WORKSPACE
+ls /home/runner/work/checkout/checkout
+
 env | sort
 
 echo "$1"

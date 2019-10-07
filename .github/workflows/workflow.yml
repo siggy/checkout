@@ -32,6 +32,5 @@ jobs:
         echo $GITHUB_SHA
         echo $GITHUB_WORKSPACE
         ls $GITHUB_WORKSPACE
-        ls /home/runner/work/checkout/checkout
         git status
         git log -n 4

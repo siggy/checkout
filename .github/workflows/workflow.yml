@@ -12,15 +12,35 @@ jobs:
   test_checkout:
     runs-on: ubuntu-latest
     steps:
+    # for debugging
+    - name: Dump env
+      run: |
+        env | sort
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
+    - name: Dump job context
+      env:
+        JOB_CONTEXT: ${{ toJson(job) }}
+      run: echo "$JOB_CONTEXT"
     - name: git co
       uses: actions/checkout@v1
-    - name: siggy co
-      uses: siggy/checkout@master
-    - name: test git
+    - name: test actions co
       run: |
         pwd
+        echo $GITHUB_SHA
         echo $GITHUB_WORKSPACE
         ls $GITHUB_WORKSPACE
-        ls /home/runner/work/checkout/checkout
+        git status
+        git log -n 4
+    - name: siggy co
+      uses: siggy/checkout@master
+    - name: test siggy co
+      run: |
+        pwd
+        echo $GITHUB_SHA
+        echo $GITHUB_WORKSPACE
+        ls $GITHUB_WORKSPACE
         git status
         git log -n 4

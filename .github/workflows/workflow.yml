@@ -24,9 +24,19 @@ jobs:
       env:
         JOB_CONTEXT: ${{ toJson(job) }}
       run: echo "$JOB_CONTEXT"
+    - name: git co
+      uses: actions/checkout@v1
+    - name: test actions co
+      run: |
+        pwd
+        echo $GITHUB_SHA
+        echo $GITHUB_WORKSPACE
+        ls $GITHUB_WORKSPACE
+        git status
+        git log -n 4
     - name: siggy co
       uses: siggy/checkout@master
-    - name: test git
+    - name: test siggy co
       run: |
         pwd
         echo $GITHUB_SHA

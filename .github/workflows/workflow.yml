@@ -14,11 +14,8 @@ jobs:
     steps:
     - name: git co
       uses: actions/checkout@v1
-    - name: checkout actions
-      id: checkout
-      uses: ./.github/actions/checkout
-      with:
-        github-context: ${{ toJson(github) }}
+    - name: siggy co
+      uses: siggy/checkout@master
     - name: test git
       run: |
         pwd
